@@ -71,7 +71,13 @@
       b.setAttribute("role", "tab");
       b.dataset.id = f.id;
       b.innerHTML = '<span class="tab-emoji" aria-hidden="true">' + f.emoji + "</span><span>" + f.name + "</span>";
-      b.addEventListener("click", function () { selectFood(f.id, true); });
+      b.addEventListener("click", function () {
+  if (window.SITE_ROOT) {
+    location.href = window.SITE_ROOT + (f.id === "custom" ? "#custom" : f.id + "/");
+  } else {
+    selectFood(f.id, true);
+  }
+});
       tabNav.appendChild(b);
     });
   }
