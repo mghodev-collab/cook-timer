@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>계란 삶는 시간 타이머 | 반숙 6분 30초 · 완숙 11분</title>
+  <meta name="description" content="계란 반숙·완숙 삶는 시간을 타이머로 정확하게 맞춰 보세요. 냉장 계란 시간 자동 보정, 알림음 지원, 설치 없이 무료로 사용할 수 있습니다.">
+  <meta name="theme-color" content="#3f9b4a">
+  <link rel="canonical" href="https://mghodev-collab.github.io/cook-timer/egg/">
+  <meta property="og:title" content="계란 삶는 시간 타이머 | 반숙·완숙">
+  <meta property="og:description" content="반숙 6분 30초, 완숙 11분. 냉장 계란 보정까지 되는 무료 계란 타이머.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mghodev-collab.github.io/cook-timer/egg/">
+  <meta property="og:image" content="https://mghodev-collab.github.io/cook-timer/og-image.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥚</text></svg>">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/ads.js" defer></script>
+  <script>window.START_FOOD = "egg"; window.SITE_ROOT = "../";</script>
+</head>
+<body>
+<div class="container">
+  <header class="hero">
+    <h1>🥚 계란 삶는 시간 타이머</h1>
+    <p>반숙부터 완숙까지, 냉장 계란도 정확하게</p>
+  </header>
+
+  <nav class="tabs" id="tabNav" role="tablist" aria-label="음식 선택"></nav>
+
+  <section class="panel" id="panel" aria-live="polite"></section>
+
+  <section class="timer-section" id="timers">
+    <div class="timer-head">
+      <h2>진행 중인 타이머</h2>
+      <span class="wake-status" id="wakeStatus"></span>
+      <button type="button" class="link-btn" id="clearDone" hidden>완료된 타이머 지우기</button>
+    </div>
+    <div class="timer-list" id="timerList"></div>
+    <p class="empty" id="emptyNotice">익힘 정도를 고르고 타이머를 시작하세요.</p>
+  </section>
+
+  <div class="ad" data-ad="middle"></div>
+
+  <section class="guide food-tips" id="foodTips" hidden></section>
+
+  <article class="guide">
+    <h2>계란 삶는 시간, 이렇게 맞추세요</h2>
+    <p>계란은 1~2분 차이로 노른자 상태가 크게 달라집니다. 끓는 물에 계란을 넣은 시점부터 재는 것이 기준이며, 냉장고에서 바로 꺼낸 계란은 상온 계란보다 약 1분을 더 삶아야 같은 익힘 정도가 나옵니다.</p>
+    <table class="time-table">
+      <thead><tr><th>익힘 정도</th><th>노른자 상태</th><th>삶는 시간</th></tr></thead>
+      <tbody>
+        <tr><td>촉촉한 반숙</td><td>노른자가 흐르는 정도</td><td>6분 30초</td></tr>
+        <tr><td>쫀득한 반숙</td><td>노른자가 꾸덕한 정도</td><td>8분</td></tr>
+        <tr><td>완숙</td><td>노른자까지 완전히 익음</td><td>11분</td></tr>
+      </tbody>
+    </table>
+    <p class="note">💡 시간이 끝나면 바로 찬물이나 얼음물에 2~3분 담가 식히세요. 더 이상 익지 않고 껍데기도 잘 벗겨집니다.</p>
+  </article>
+
+  <article class="guide">
+    <h2>다른 요리 타이머</h2>
+    <p>
+      <a href="../ramen/">라면</a> · <a href="../pasta/">파스타</a> ·
+      <a href="../dumpling/">만두</a> · <a href="../potato/">감자·고구마</a> ·
+      <a href="../veggie/">채소 데치기</a> · <a href="../tea/">차 우리기</a> ·
+      <a href="../">전체 타이머</a>
+    </p>
+  </article>
+
+  <footer>
+    <p>© 2026 주방 만능 타이머</p>
+    <p><a href="../privacy.html">개인정보처리방침</a></p>
+  </footer>
+</div>
+
+<script src="../js/foods.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
