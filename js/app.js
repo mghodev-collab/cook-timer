@@ -362,8 +362,10 @@
   // ───────── boot ─────────
   var BASE_TITLE = document.title;
   buildTabs();
-  selectFood((location.hash || "").slice(1) || FOODS[0].id, false);
-  window.addEventListener("hashchange", function () { selectFood(location.hash.slice(1), false); });
+  selectFood(window.START_FOOD || (location.hash || "").slice(1) || FOODS[0].id, false);
+window.addEventListener("hashchange", function () {
+  if (!window.START_FOOD) selectFood(location.hash.slice(1), false);
+});
   syncCards();
   tick();
   setInterval(tick, 250);
