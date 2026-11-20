@@ -7,13 +7,14 @@
   <meta name="naver-site-verification" content="dac51519675996f8272e4600abc5e9e546cff1d5" />
   <meta name="google-site-verification" content="iP2UCNUrO2hqlsnCPnyyzd3aEa2IQTcngWu-qYTWnwU" />
   <meta name="naver-site-verification" content="28e5bd537b596e68faf1cd81f5ccb45faa66015a" />
-  <title>주방 만능 타이머 | 계란 삶기·라면·파스타 최적 시간 계산기</title>
-  <meta name="description" content="계란 반숙·완숙 삶는 시간, 꼬들한 라면, 파스타 알덴테, 냉동만두, 감자·고구마 찌기, 채소 데치기, 차 우리기 시간까지 한 번에 맞춰 주는 무료 모바일 주방 만능 타이머입니다.">
-  <meta name="keywords" content="계란 삶기 타이머, 에그 타이머, 반숙 시간, 라면 타이머, 파스타 삶는 시간, 만두 찌는 시간, 고구마 찌는 시간, 주방 타이머">
+  <title>요리 타이머 – 음식별 정확한 조리 시간 (계란·라면·파스타)</title>
+  <meta name="description" content="계란 삶기, 라면, 파스타, 냉동만두, 감자·고구마 찌기, 채소 데치기, 차 우리기까지 음식별로 딱 맞는 조리 시간을 알려 주는 무료 요리 타이머입니다.">
+  <meta name="keywords" content="요리 타이머, 계란 삶기 타이머, 반숙 시간, 라면 타이머, 파스타 삶는 시간, 만두 찌는 시간, 고구마 찌는 시간, 조리 시간">
   <meta name="theme-color" content="#3f9b4a">
   <link rel="canonical" href="https://mghodev-collab.github.io/cook-timer/">
-  <meta property="og:title" content="주방 만능 타이머 - 계란·라면·파스타 맞춤 타이머">
-  <meta property="og:description" content="설치 없이 바로 쓰는 무료 주방 멀티 타이머. 냉장 계란 시간 자동 보정, 여러 타이머 동시 실행, 알림음 지원.">
+  <meta property="og:site_name" content="요리 타이머">
+  <meta property="og:title" content="요리 타이머 – 음식별 정확한 조리 시간">
+  <meta property="og:description" content="설치 없이 바로 쓰는 무료 요리 타이머. 음식별 조리 시간, 냉장 계란 시간 자동 보정, 여러 타이머 동시 실행, 알림음 지원.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mghodev-collab.github.io/cook-timer/">
   <meta property="og:image" content="https://mghodev-collab.github.io/cook-timer/og-image.jpg">
@@ -21,9 +22,18 @@
   <meta property="og:image:height" content="630">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍳</text></svg>">
 
-  <!-- ★ 구글 서치콘솔 · 네이버 서치어드바이저 · AdSense 소유권 확인 메타 태그는 이 아래 줄에 넣으세요 ★ -->
-
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* 허브 페이지 전용 스타일 (음식 카드) */
+    .food-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 20px 0; padding: 0; list-style: none; }
+    @media (min-width: 640px) { .food-grid { grid-template-columns: repeat(3, 1fr); } }
+    .food-card { display: block; height: 100%; padding: 16px 14px; border: 1px solid #d9e6da; border-radius: 12px; background: #fff; color: inherit; text-decoration: none; }
+    .food-card:hover, .food-card:focus-visible { border-color: #3f9b4a; outline: 2px solid #3f9b4a; outline-offset: 2px; }
+    .food-card .icon { display: block; font-size: 32px; line-height: 1; margin-bottom: 8px; }
+    .food-card strong { display: block; font-size: 16px; margin-bottom: 4px; }
+    .food-card span.desc { display: block; font-size: 13px; line-height: 1.45; color: #5b6b5d; }
+  </style>
+
   <script src="js/ads.js" defer></script>
   <script type="application/ld+json">
   {
@@ -44,24 +54,42 @@
 <body>
 <div class="container">
   <header class="hero">
-    <h1>🍳 주방 만능 타이머</h1>
-    <p>계란 · 라면 · 파스타부터 만두, 고구마, 차까지 딱 맞는 조리 시간</p>
+    <h1>🍳 요리 타이머</h1>
+    <p>음식별로 딱 맞는 조리 시간, 골라서 바로 시작하세요</p>
   </header>
-
-  <nav class="tabs" id="tabNav" role="tablist" aria-label="음식 선택"></nav>
 
   <div class="ad" data-ad="top"></div>
 
-  <section class="panel" id="panel" aria-live="polite"></section>
+  <section class="guide" aria-labelledby="foodsTitle">
+    <h2 id="foodsTitle">어떤 요리를 하시나요?</h2>
+    <p>요리 타이머는 계란, 라면, 파스타처럼 시간 때문에 실패하기 쉬운 음식의 조리 시간을 한 번에 맞춰 주는 무료 웹 타이머입니다. 음식을 고르면 익힘 정도별 시간과 요리 팁을 볼 수 있습니다.</p>
+    <ul class="food-grid">
+      <li><a class="food-card" href="./egg/"><span class="icon">🥚</span><strong>계란 삶기</strong><span class="desc">반숙·완숙, 냉장 계란 시간 보정</span></a></li>
+      <li><a class="food-card" href="./ramen/"><span class="icon">🍜</span><strong>라면</strong><span class="desc">꼬들면부터 푹 익힌 면까지</span></a></li>
+      <li><a class="food-card" href="./pasta/"><span class="icon">🍝</span><strong>파스타</strong><span class="desc">알덴테, 스파게티니, 숏파스타</span></a></li>
+      <li><a class="food-card" href="./dumpling/"><span class="icon">🥟</span><strong>냉동만두</strong><span class="desc">물만두·찐만두·군만두</span></a></li>
+      <li><a class="food-card" href="./potato/"><span class="icon">🥔</span><strong>감자·고구마</strong><span class="desc">찌는 시간 한눈에</span></a></li>
+      <li><a class="food-card" href="./veggie/"><span class="icon">🥦</span><strong>채소 데치기</strong><span class="desc">시금치·브로콜리·콩나물</span></a></li>
+      <li><a class="food-card" href="./tea/"><span class="icon">🍵</span><strong>차 우리기</strong><span class="desc">녹차·홍차·허브티</span></a></li>
+    </ul>
+  </section>
 
-  <section class="timer-section" id="timers">
-    <div class="timer-head">
-      <h2>진행 중인 타이머</h2>
-      <span class="wake-status" id="wakeStatus"></span>
-      <button type="button" class="link-btn" id="clearDone" hidden>완료된 타이머 지우기</button>
-    </div>
-    <div class="timer-list" id="timerList"></div>
-    <p class="empty" id="emptyNotice">위에서 음식을 고르고 타이머를 시작하세요. 여러 개를 동시에 돌릴 수 있어요.</p>
+  <!-- 직접 설정 타이머: 기존 타이머 동작(app.js)을 그대로 유지 -->
+  <section id="custom" aria-labelledby="customTitle">
+    <h2 id="customTitle" style="margin:24px 0 8px;font-size:20px;">직접 설정 타이머</h2>
+    <nav class="tabs" id="tabNav" role="tablist" aria-label="음식 선택"></nav>
+
+    <section class="panel" id="panel" aria-live="polite"></section>
+
+    <section class="timer-section" id="timers">
+      <div class="timer-head">
+        <h2>진행 중인 타이머</h2>
+        <span class="wake-status" id="wakeStatus"></span>
+        <button type="button" class="link-btn" id="clearDone" hidden>완료된 타이머 지우기</button>
+      </div>
+      <div class="timer-list" id="timerList"></div>
+      <p class="empty" id="emptyNotice">음식을 고르고 타이머를 시작하세요. 여러 개를 동시에 돌릴 수 있어요.</p>
+    </section>
   </section>
 
   <div class="ad" data-ad="middle"></div>
@@ -69,10 +97,10 @@
   <section class="guide food-tips" id="foodTips" hidden></section>
 
   <article class="guide">
-    <h2>주방 만능 타이머 사용 방법</h2>
-    <p>주방 만능 타이머는 요리할 때 자주 헷갈리는 <strong>계란 삶는 시간, 라면 끓이는 시간, 파스타 면 삶는 시간</strong>을 한 번의 터치로 맞춰 주는 웹 타이머입니다. 여러 요리를 동시에 할 때는 타이머를 여러 개 추가해서 한꺼번에 잴 수 있습니다.</p>
+    <h2>요리 타이머 사용 방법</h2>
+    <p>요리 타이머는 요리할 때 자주 헷갈리는 <strong>계란 삶는 시간, 라면 끓이는 시간, 파스타 면 삶는 시간</strong>을 한 번의 터치로 맞춰 줍니다. 여러 요리를 동시에 할 때는 타이머를 여러 개 추가해서 한꺼번에 잴 수 있습니다.</p>
     <ul>
-      <li><strong>1단계:</strong> 위쪽 탭에서 계란, 라면, 파스타 등 원하는 음식을 고릅니다.</li>
+      <li><strong>1단계:</strong> 위에서 계란, 라면, 파스타 등 원하는 음식을 고릅니다.</li>
       <li><strong>2단계:</strong> 원하는 익힘 정도와 보관 상태(냉장/상온)를 고릅니다.</li>
       <li><strong>3단계:</strong> 물이 끓기 시작할 때 재료를 넣고 <strong>타이머 시작</strong> 버튼을 누릅니다.</li>
     </ul>
@@ -84,19 +112,19 @@
     <table class="time-table">
       <thead><tr><th>음식</th><th>조리법</th><th>시간</th></tr></thead>
       <tbody>
-        <tr><td>계란</td><td>촉촉한 반숙 / 쫀득한 반숙 / 완숙</td><td>6분 30초 / 8분 / 11분</td></tr>
-        <tr><td>라면</td><td>꼬들면 / 기본 / 푹 익힘</td><td>3분 30초 / 4분 30초 / 5분 30초</td></tr>
-        <tr><td>파스타</td><td>스파게티니 / 알덴테 / 숏파스타</td><td>7분 / 8분 / 10분</td></tr>
-        <tr><td>냉동만두</td><td>물만두 / 찐만두 / 군만두</td><td>5분 / 10분 / 7분</td></tr>
-        <tr><td>감자·고구마</td><td>감자 / 고구마 찌기</td><td>20분 / 30분</td></tr>
-        <tr><td>채소</td><td>시금치 / 브로콜리 / 콩나물</td><td>30초 / 1분 30초 / 5분</td></tr>
-        <tr><td>차</td><td>녹차 / 홍차 / 허브티</td><td>2분 / 3분 / 5분</td></tr>
+        <tr><td><a href="./egg/">계란</a></td><td>촉촉한 반숙 / 쫀득한 반숙 / 완숙</td><td>6분 30초 / 8분 / 11분</td></tr>
+        <tr><td><a href="./ramen/">라면</a></td><td>꼬들면 / 기본 / 푹 익힘</td><td>3분 30초 / 4분 30초 / 5분 30초</td></tr>
+        <tr><td><a href="./pasta/">파스타</a></td><td>스파게티니 / 알덴테 / 숏파스타</td><td>7분 / 8분 / 10분</td></tr>
+        <tr><td><a href="./dumpling/">냉동만두</a></td><td>물만두 / 찐만두 / 군만두</td><td>5분 / 10분 / 7분</td></tr>
+        <tr><td><a href="./potato/">감자·고구마</a></td><td>감자 / 고구마 찌기</td><td>20분 / 30분</td></tr>
+        <tr><td><a href="./veggie/">채소</a></td><td>시금치 / 브로콜리 / 콩나물</td><td>30초 / 1분 30초 / 5분</td></tr>
+        <tr><td><a href="./tea/">차</a></td><td>녹차 / 홍차 / 허브티</td><td>2분 / 3분 / 5분</td></tr>
       </tbody>
     </table>
   </article>
 
   <footer>
-    <p>© 2026 주방 만능 타이머 · 모바일 & PC 무료 웹 타이머</p>
+    <p>© 2026 요리 타이머 · 모바일 &amp; PC 무료 웹 타이머</p>
     <p><a href="privacy.html">개인정보처리방침</a></p>
   </footer>
 </div>
