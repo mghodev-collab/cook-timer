@@ -65,6 +65,7 @@
   var activeId = null;
 
   function buildTabs() {
+    if (!tabNav) return;
     FOODS.concat([{ id: CUSTOM_ID, emoji: "⏱️", name: "직접 설정" }]).forEach(function (f) {
       var b = el("button", "tab");
       b.type = "button";
@@ -72,17 +73,18 @@
       b.dataset.id = f.id;
       b.innerHTML = '<span class="tab-emoji" aria-hidden="true">' + f.emoji + "</span><span>" + f.name + "</span>";
       b.addEventListener("click", function () {
-  if (window.SITE_ROOT) {
-    location.href = window.SITE_ROOT + (f.id === "custom" ? "#custom" : f.id + "/");
-  } else {
-    selectFood(f.id, true);
-  }
-});
+        if (window.SITE_ROOT) {
+          location.href = window.SITE_ROOT + f.id + "/";
+        } else {
+          selectFood(f.id, true);
+        }
+      });
       tabNav.appendChild(b);
     });
   }
 
   function selectFood(id, updateHash) {
+    if (!panel) return;
     if (id !== CUSTOM_ID && !findFood(id)) id = FOODS[0].id;
     activeId = id;
     var tabs = tabNav.querySelectorAll(".tab");
@@ -196,6 +198,7 @@
 
   function renderTips(food) {
     var box = $("#foodTips");
+    if (!box) return;
     box.innerHTML = "";
     if (!food || !food.tips || !food.tips.length) { box.hidden = true; return; }
     box.hidden = false;
@@ -313,7 +316,7 @@
       lastBeep = now; beep();
       if (navigator.vibrate) navigator.vibrate([300, 150, 300]);
     }
-    document.title = ringing ? "⏰ 완료! · 주방 만능 타이머"
+        document.title = ringing ? "⏰ 완료! · 요리 타이머"
       : soonest ? clock(soonest.rem) + " · " + soonest.t.title.replace(/^\S+\s/, "")
       : BASE_TITLE;
     setWakeLock(running > 0 || ringing);
@@ -363,9 +366,9 @@
   var BASE_TITLE = document.title;
   buildTabs();
   selectFood(window.START_FOOD || (location.hash || "").slice(1) || FOODS[0].id, false);
-window.addEventListener("hashchange", function () {
-  if (!window.START_FOOD) selectFood(location.hash.slice(1), false);
-});
+  window.addEventListener("hashchange", function () {
+    if (!window.START_FOOD && panel) selectFood(location.hash.slice(1), false);
+  });
   syncCards();
   tick();
   setInterval(tick, 250);
