@@ -32,23 +32,10 @@
     .food-card .icon { display: block; font-size: 32px; line-height: 1; margin-bottom: 8px; }
     .food-card strong { display: block; font-size: 16px; margin-bottom: 4px; }
     .food-card span.desc { display: block; font-size: 13px; line-height: 1.45; color: #5b6b5d; }
+    .timer-lead { margin: 0 0 8px; font-size: 14px; line-height: 1.5; color: #5b6b5d; }
   </style>
 
   <script src="js/ads.js" defer></script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      { "@type": "Question", "name": "냉장고에서 꺼낸 계란은 왜 1분 더 삶아야 하나요?",
-        "acceptedAnswer": { "@type": "Answer", "text": "냉장 계란은 내부 온도가 낮아 열이 중심까지 전달되는 데 시간이 더 걸리므로 약 60초를 더 삶으면 반숙·완숙에 실패하지 않습니다." } },
-      { "@type": "Question", "name": "계란 반숙은 몇 분 삶아야 하나요?",
-        "acceptedAnswer": { "@type": "Answer", "text": "끓는 물 기준 촉촉한 반숙은 6분 30초, 쫀득한 반숙은 8분, 완숙은 11분입니다. 냉장 계란은 1분을 더하세요." } },
-      { "@type": "Question", "name": "파스타를 알덴테로 삶으려면?",
-        "acceptedAnswer": { "@type": "Answer", "text": "포장지 권장 시간보다 1분~1분 30초 일찍 건져 소스와 함께 1분 정도 볶으면 됩니다." } }
-    ]
-  }
-  </script>
   <script>window.SITE_ROOT = "./";</script>
 </head>
 <body>
@@ -74,37 +61,30 @@
     </ul>
   </section>
 
-  <!-- 직접 설정 타이머: 기존 타이머 동작(app.js)을 그대로 유지 -->
-  <section id="custom" aria-labelledby="customTitle">
-    <h2 id="customTitle" style="margin:24px 0 8px;font-size:20px;">직접 설정 타이머</h2>
-    <nav class="tabs" id="tabNav" role="tablist" aria-label="음식 선택"></nav>
-
-    <section class="panel" id="panel" aria-live="polite"></section>
-
-    <section class="timer-section" id="timers">
-      <div class="timer-head">
-        <h2>진행 중인 타이머</h2>
-        <span class="wake-status" id="wakeStatus"></span>
-        <button type="button" class="link-btn" id="clearDone" hidden>완료된 타이머 지우기</button>
-      </div>
-      <div class="timer-list" id="timerList"></div>
-      <p class="empty" id="emptyNotice">음식을 고르고 타이머를 시작하세요. 여러 개를 동시에 돌릴 수 있어요.</p>
-    </section>
+  <!-- 진행 중인 타이머: app.js가 id(timers, wakeStatus, clearDone, timerList, emptyNotice)로 연결 -->
+  <section class="timer-section" id="timers">
+    <div class="timer-head">
+      <h2>진행 중인 타이머</h2>
+      <span class="wake-status" id="wakeStatus"></span>
+      <button type="button" class="link-btn" id="clearDone" hidden>완료된 타이머 지우기</button>
+    </div>
+    <p class="timer-lead">음식 페이지에서 시작한 타이머가 여기에 모입니다. 여러 개를 동시에 돌릴 수 있어요.</p>
+    <div class="timer-list" id="timerList"></div>
+    <p class="empty" id="emptyNotice">계란을 삶는 동안 라면 물도 올려 보세요. 여러 타이머를 동시에 돌릴 수 있어요.</p>
   </section>
 
   <div class="ad" data-ad="middle"></div>
-
-  <section class="guide food-tips" id="foodTips" hidden></section>
 
   <article class="guide">
     <h2>요리 타이머 사용 방법</h2>
     <p>요리 타이머는 요리할 때 자주 헷갈리는 <strong>계란 삶는 시간, 라면 끓이는 시간, 파스타 면 삶는 시간</strong>을 한 번의 터치로 맞춰 줍니다. 여러 요리를 동시에 할 때는 타이머를 여러 개 추가해서 한꺼번에 잴 수 있습니다.</p>
     <ul>
-      <li><strong>1단계:</strong> 위에서 계란, 라면, 파스타 등 원하는 음식을 고릅니다.</li>
+      <li><strong>1단계:</strong> 위 카드에서 계란, 라면, 파스타 등 원하는 음식을 골라 해당 페이지로 이동합니다.</li>
       <li><strong>2단계:</strong> 원하는 익힘 정도와 보관 상태(냉장/상온)를 고릅니다.</li>
       <li><strong>3단계:</strong> 물이 끓기 시작할 때 재료를 넣고 <strong>타이머 시작</strong> 버튼을 누릅니다.</li>
+      <li><strong>4단계:</strong> 다른 음식 페이지에서 타이머를 또 시작하면 <strong>여러 개가 동시에</strong> 돌아갑니다. 진행 중인 타이머는 어느 페이지에서든 한곳에 모아 볼 수 있어요.</li>
     </ul>
-    <p class="note">💡 타이머가 도는 동안 화면이 꺼지지 않도록 자동으로 막아 줍니다(지원 브라우저). 페이지를 새로고침해도 진행 중인 타이머는 그대로 유지됩니다.</p>
+    <p class="note">💡 타이머가 도는 동안 화면이 꺼지지 않도록 자동으로 막아 줍니다(지원 브라우저). 페이지를 새로고침하거나 다른 음식 페이지로 이동해도 진행 중인 타이머는 그대로 유지됩니다.</p>
 
     <div class="ad" data-ad="bottom"></div>
 
