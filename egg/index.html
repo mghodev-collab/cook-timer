@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>계란 삶는 시간 타이머 | 반숙 6분 30초 · 완숙 11분</title>
-  <meta name="description" content="계란 반숙·완숙 삶는 시간을 타이머로 정확하게 맞춰 보세요. 냉장 계란 시간 자동 보정, 알림음 지원, 설치 없이 무료로 사용할 수 있습니다.">
+  <title>계란 삶는 시간 타이머 | 반숙 6분 30초 · 완숙 11분 | 요리 타이머</title>
+  <meta name="description" content="계란 반숙·완숙 삶는 시간을 타이머로 정확히 맞추세요. 냉장 계란 자동 보정, 알림음 지원, 설치 없이 무료.">
   <meta name="theme-color" content="#3f9b4a">
   <link rel="canonical" href="https://mghodev-collab.github.io/cook-timer/egg/">
   <meta property="og:title" content="계란 삶는 시간 타이머 | 반숙·완숙">
@@ -16,6 +16,54 @@
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/ads.js" defer></script>
   <script>window.START_FOOD = "egg"; window.SITE_ROOT = "../";</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "냉장고에서 꺼낸 계란은 왜 1분 더 삶아야 하나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "냉장 보관된 계란(약 4℃)은 상온 계란보다 내부 온도가 낮아서, 끓는 물에 넣으면 물 온도가 떨어지고 열이 중심까지 가는 데 시간이 더 걸립니다. 냉장 계란을 체크하면 60초가 자동으로 추가되어 반숙·완숙에 실패하지 않습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "삶은 계란 껍데기를 쉽게 까는 방법은 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "끓는 물에 소금 1작은술이나 식초를 조금 넣으면 껍데기에 금이 가도 흰자가 새어 나오지 않습니다. 알람이 울리면 바로 건져서 찬물이나 얼음물에 2~3분 담가 식히면 흰자가 줄어들면서 껍데기가 매끄럽게 벗겨집니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "삶은 계란 노른자 주위가 초록빛이 도는 이유는 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "너무 오래 삶으면 흰자의 황 성분과 노른자의 철분이 반응해 노른자 겉에 회녹색 막이 생깁니다. 먹어도 해롭지 않지만 풍미가 떨어질 수 있어요. 완숙도 11분을 넘기지 말고, 알람이 울리면 바로 찬물에 식혀 주세요."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "삶은 계란은 얼마나 보관할 수 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "껍데기째 냉장 보관하면 약 일주일 안에 드시는 것이 좋습니다. 껍데기를 깐 계란은 쉽게 마르고 냄새가 배므로 밀폐 용기에 담아 2~3일 안에 드세요. 상온에 오래 두지 마세요."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "계란이 삶는 도중에 깨지는 이유와 해결 방법은 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "찬 계란을 팔팔 끓는 물에 던지듯 넣거나, 센 불에서 계란끼리 부딪히면 껍데기에 금이 갑니다. 숟가락에 올려 천천히 내려놓고, 넣은 뒤에는 불을 줄여 보글보글 끓는 정도로 유지하세요."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <div class="container">
@@ -44,30 +92,39 @@
 
   <article class="guide">
     <h2>계란 삶는 시간, 이렇게 맞추세요</h2>
-    <p>계란은 1~2분 차이로 노른자 상태가 크게 달라집니다. 끓는 물에 계란을 넣은 시점부터 재는 것이 기준이며, 냉장고에서 바로 꺼낸 계란은 상온 계란보다 약 1분을 더 삶아야 같은 익힘 정도가 나옵니다.</p>
+    <p>계란은 1~2분 차이로 노른자 상태가 크게 달라집니다. 끓는 물에 계란을 넣은 시점부터 재는 것이 기준이며, 냉장고에서 바로 꺼낸 계란은 상온 계란보다 약 1분을 더 삶아야 같은 익힘 정도가 나옵니다. 위 타이머에서 익힘 정도를 고르고 냉장 계란 체크 여부만 확인하면 시간이 자동으로 계산됩니다.</p>
     <table class="time-table">
-      <thead><tr><th>익힘 정도</th><th>노른자 상태</th><th>삶는 시간</th></tr></thead>
+      <thead><tr><th>익힘 정도</th><th>노른자 상태</th><th>상온 계란</th><th>냉장 계란</th></tr></thead>
       <tbody>
-        <tr><td>촉촉한 반숙</td><td>노른자가 흐르는 정도</td><td>6분 30초</td></tr>
-        <tr><td>쫀득한 반숙</td><td>노른자가 꾸덕한 정도</td><td>8분</td></tr>
-        <tr><td>완숙</td><td>노른자까지 완전히 익음</td><td>11분</td></tr>
+        <tr><td>촉촉한 반숙</td><td>노른자가 흐르는 정도</td><td>6분 30초</td><td>7분 30초</td></tr>
+        <tr><td>쫀득한 반숙</td><td>노른자가 꾸덕한 정도</td><td>8분</td><td>9분</td></tr>
+        <tr><td>완숙</td><td>노른자까지 완전히 익음</td><td>11분</td><td>12분</td></tr>
       </tbody>
     </table>
     <p class="note">💡 시간이 끝나면 바로 찬물이나 얼음물에 2~3분 담가 식히세요. 더 이상 익지 않고 껍데기도 잘 벗겨집니다.</p>
+
+    <h2>계란 맛있게 삶는 팁 4가지</h2>
+    <ul>
+      <li><strong>숟가락으로 조심히 넣기</strong>: 계란을 던지듯 넣으면 껍데기에 금이 가요. 숟가락에 올려 천천히 내려놓으세요.</li>
+      <li><strong>물은 계란이 잠기게, 불은 중불로</strong>: 계란이 물 위로 드러나면 고르게 익지 않습니다. 넣은 뒤에는 보글보글 끓는 정도로 불을 줄이면 계란끼리 부딪혀 깨지는 것도 막을 수 있어요.</li>
+      <li><strong>알람이 울리면 바로 찬물로</strong>: 건진 뒤에도 남은 열로 계속 익기 때문에, 얼음물에 담가 익힘을 멈춰야 정확한 반숙이 유지됩니다.</li>
+      <li><strong>여러 개 삶을 때는 크기 맞추기</strong>: 크기가 다른 계란을 함께 삶으면 익는 정도가 달라집니다. 같은 크기끼리 넣고, 특란처럼 큰 계란은 30초 정도 더 삶는 것을 추천합니다.</li>
+    </ul>
   </article>
 
   <article class="guide">
-    <h2>다른 요리 타이머</h2>
+    <h2>함께 쓰면 좋은 타이머</h2>
+    <p>이 사이트의 타이머는 여러 개를 동시에 돌릴 수 있어요. 라면이나 감자를 삶는 동안 계란 타이머를 함께 켜 두면 편합니다.</p>
     <p>
       <a href="../ramen/">라면</a> · <a href="../pasta/">파스타</a> ·
       <a href="../dumpling/">만두</a> · <a href="../potato/">감자·고구마</a> ·
       <a href="../veggie/">채소 데치기</a> · <a href="../tea/">차 우리기</a> ·
-      <a href="../">전체 타이머</a>
+      <a href="../custom/">직접 설정</a> · <a href="../">전체 타이머</a>
     </p>
   </article>
- 
+
   <footer>
-    <p>© 2026 주방 만능 타이머</p>
+    <p>© 2026 요리 타이머</p>
     <p><a href="../privacy.html">개인정보처리방침</a></p>
   </footer>
 </div>
