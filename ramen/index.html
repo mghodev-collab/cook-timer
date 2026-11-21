@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>라면 끓이는 시간 타이머 | 꼬들면 3분 30초 · 기본 4분 30초 | 요리 타이머</title>
-  <meta name="description" content="라면 끓이는 시간을 타이머로 정확하게 맞춰 보세요. 꼬들면 3분 30초, 기본 봉지라면 4분 30초, 컵라면 시간 보정까지 무료로 사용할 수 있습니다.">
+  <meta name="description" content="라면 끓이는 시간을 타이머로 맞추세요. 꼬들면 3분 30초, 기본 4분 30초, 컵라면 보정까지 설치 없이 무료.">
   <meta name="theme-color" content="#3f9b4a">
   <link rel="canonical" href="https://mghodev-collab.github.io/cook-timer/ramen/">
   <meta property="og:site_name" content="요리 타이머">
   <meta property="og:title" content="라면 끓이는 시간 타이머 | 꼬들면 3분 30초 · 기본 4분 30초 | 요리 타이머">
-  <meta property="og:description" content="라면 끓이는 시간을 타이머로 정확하게 맞춰 보세요. 꼬들면 3분 30초, 기본 봉지라면 4분 30초, 컵라면 시간 보정까지 무료로 사용할 수 있습니다.">
+  <meta property="og:description" content="라면 끓이는 시간을 타이머로 맞추세요. 꼬들면 3분 30초, 기본 4분 30초, 컵라면 보정까지 설치 없이 무료.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mghodev-collab.github.io/cook-timer/ramen/">
   <meta property="og:image" content="https://mghodev-collab.github.io/cook-timer/og-image.jpg">
@@ -19,6 +19,54 @@
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/ads.js" defer></script>
   <script>window.START_FOOD = "ramen"; window.SITE_ROOT = "../";</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "라면을 꼬들하게 끓이는 비결은?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "면을 넣은 뒤 젓가락으로 면을 들어 올려 공기와 닿게 해 주면 면이 살짝 식으면서 탄력이 살아납니다. 여기에 기본 시간보다 1분 정도 일찍 불을 끄면 더 꼬들한 식감이 됩니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "라면 물 양은 얼마나 넣어야 하나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "포장지에 적힌 물 양을 따르는 것이 가장 정확합니다. 봉지라면은 보통 500~550mL(종이컵 3컵 안팎)입니다. 물이 많으면 국물이 싱겁고, 적으면 짜고 면이 덜 익을 수 있어요."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "컵라면은 왜 시간을 줄여 주나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "컵라면은 제품마다 안내 시간이 다르므로 용기에 적힌 시간을 먼저 확인하세요. 컵라면 체크를 켜면 선택한 시간에서 30초가 줄어듭니다. 뚜껑을 덮어 두면 열이 빠지지 않아 면이 더 고르게 익습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "라면에 계란은 언제 넣는 게 좋나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "계란을 풀어 넣으려면 면이 다 익기 1분 전쯤 넣고 젓지 않고 두면 몽글하게 익습니다. 반숙 느낌을 원하면 불을 끄기 직전에 넣고 뚜껑을 덮어 두세요. 삶은 계란을 곁들이려면 계란 타이머를 함께 켜 두면 편합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "라면이 금방 불지 않게 하려면 어떻게 하나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "다 끓인 뒤에도 냄비가 뜨거워서 면이 계속 익습니다. 알람이 울리면 바로 그릇에 옮겨 담으세요. 냄비째 두면 면이 퍼져서 금방 불어 버립니다."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <div class="container">
@@ -47,7 +95,7 @@
 
   <article class="guide">
     <h2>라면 끓이는 시간, 이렇게 맞추세요</h2>
-    <p>라면은 30초 차이로 면발 식감이 달라집니다. 물이 팔팔 끓을 때 면과 스프를 넣은 시점부터 재는 것이 기준이며, 포장지 권장 시간은 보통 4분 30초 안팎입니다. 꼬들한 면을 좋아한다면 1분 정도 줄여 보세요.</p>
+    <p>라면은 30초 차이로 면발 식감이 달라집니다. 물이 팔팔 끓을 때 면과 스프를 넣은 시점부터 재는 것이 기준이며, 포장지 권장 시간은 보통 4분 30초 안팎입니다. 꼬들한 면을 좋아한다면 1분 정도 줄여 보세요. 컵라면은 위 타이머에서 컵라면을 체크하면 30초가 줄어듭니다.</p>
     <table class="time-table">
       <thead><tr><th>식감</th><th>설명</th><th>끓이는 시간</th></tr></thead>
       <tbody>
@@ -57,13 +105,22 @@
       </tbody>
     </table>
     <p class="note">💡 면을 중간중간 들어 올려 공기와 닿게 하면 탄력이 살아나 더 꼬들한 식감이 됩니다.</p>
+
+    <h2>라면 맛있게 끓이는 팁 4가지</h2>
+    <ul>
+      <li><strong>물이 팔팔 끓은 뒤에 시작 누르기</strong>: 물이 끓기 전에 면을 넣으면 시간이 어긋나 면이 퍼지기 쉽습니다. 끓는 것을 확인하고 면과 스프를 넣은 뒤 타이머를 누르세요.</li>
+      <li><strong>냄비는 크기에 맞게</strong>: 냄비가 너무 크면 물이 빨리 줄고, 너무 작으면 끓어 넘칩니다. 면이 물에 충분히 잠기는 크기를 쓰세요.</li>
+      <li><strong>끓어 넘치면 불을 살짝 줄이기</strong>: 면을 넣은 뒤 세게 끓어오르면 중불로 낮추세요. 시간은 그대로 재도 괜찮습니다.</li>
+      <li><strong>2개 이상 끓일 때는 다시 끓은 뒤부터 재기</strong>: 면을 더 넣으면 물 온도가 잠시 떨어집니다. 물이 다시 끓기 시작한 시점부터 타이머를 누르세요.</li>
+    </ul>
   </article>
 
   <article class="guide">
-    <h2>다른 요리 타이머</h2>
+    <h2>함께 쓰면 좋은 타이머</h2>
+    <p>이 사이트의 타이머는 여러 개를 동시에 돌릴 수 있어요. 라면을 끓이면서 <a href="../egg/">계란 타이머</a>를 함께 켜 두면 삶은 계란까지 한 번에 준비할 수 있습니다.</p>
     <p>
       <a href="../egg/">계란</a> · <a href="../pasta/">파스타</a> · <a href="../dumpling/">만두</a> · <a href="../potato/">감자·고구마</a> · <a href="../veggie/">채소 데치기</a> · <a href="../tea/">차 우리기</a> ·
-      <a href="../">요리 타이머 홈</a>
+      <a href="../custom/">직접 설정</a> · <a href="../">요리 타이머 홈</a>
     </p>
   </article>
 
