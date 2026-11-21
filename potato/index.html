@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>감자·고구마 찌는 시간 타이머 | 감자 20분 · 고구마 30분 | 요리 타이머</title>
-  <meta name="description" content="감자·고구마 찌는 시간을 타이머로 정확하게 맞춰 보세요. 감자 20분, 고구마 30분, 알감자 15분, 큰 크기 보정까지 무료로 사용할 수 있습니다.">
+  <meta name="description" content="감자 20분, 고구마 30분, 알감자 15분. 크기별 찌는 시간을 타이머로 맞추고 여러 타이머를 동시에 쓰세요.">
   <meta name="theme-color" content="#3f9b4a">
   <link rel="canonical" href="https://mghodev-collab.github.io/cook-timer/potato/">
   <meta property="og:site_name" content="요리 타이머">
   <meta property="og:title" content="감자·고구마 찌는 시간 타이머 | 감자 20분 · 고구마 30분 | 요리 타이머">
-  <meta property="og:description" content="감자·고구마 찌는 시간을 타이머로 정확하게 맞춰 보세요. 감자 20분, 고구마 30분, 알감자 15분, 큰 크기 보정까지 무료로 사용할 수 있습니다.">
+  <meta property="og:description" content="감자 20분, 고구마 30분, 알감자 15분. 크기별 찌는 시간을 타이머로 맞추고 여러 타이머를 동시에 쓰세요.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mghodev-collab.github.io/cook-timer/potato/">
   <meta property="og:image" content="https://mghodev-collab.github.io/cook-timer/og-image.jpg">
@@ -17,6 +17,39 @@
   <meta property="og:image:height" content="630">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥔</text></svg>">
   <link rel="stylesheet" href="../css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "감자는 몇 분 쪄야 하나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "중간 크기 기준으로 찜기에 김이 오른 뒤 20분 정도 찌면 됩니다. 시간이 되면 젓가락으로 가장 두꺼운 부분을 찔러 힘없이 들어가는지 확인하세요." }
+      },
+      {
+        "@type": "Question",
+        "name": "고구마는 감자보다 더 오래 쪄야 하나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "중간 크기 고구마는 보통 30분 정도 찝니다. 고구마는 굵기 차이가 큰 편이라 가장 굵은 부분을 기준으로 익었는지 확인하는 것이 좋습니다." }
+      },
+      {
+        "@type": "Question",
+        "name": "큰 감자나 고구마는 시간을 얼마나 늘려야 하나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "크기가 큼직하면 10분 정도 더 찌는 것을 기준으로 삼으세요. 반으로 잘라 중간 크기처럼 만들어 찌면 시간을 줄일 수 있습니다." }
+      },
+      {
+        "@type": "Question",
+        "name": "알감자는 몇 분 찌나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "작은 알감자는 15분 정도가 기준입니다. 크기가 작아 금방 익으니 10분쯤부터 하나를 찔러 확인해 보세요." }
+      },
+      {
+        "@type": "Question",
+        "name": "시간이 지났는데 속이 덜 익었어요.",
+        "acceptedAnswer": { "@type": "Answer", "text": "5분씩 더 찌면서 젓가락으로 확인하세요. 중간에 뚜껑을 자주 열었거나 찜기 물이 부족했다면 시간이 더 걸릴 수 있습니다." }
+      }
+    ]
+  }
+  </script>
   <script src="../js/ads.js" defer></script>
   <script>window.START_FOOD = "potato"; window.SITE_ROOT = "../";</script>
 </head>
@@ -51,18 +84,31 @@
     <table class="time-table">
       <thead><tr><th>종류</th><th>크기</th><th>찌는 시간</th></tr></thead>
       <tbody>
-        <tr><td>감자</td><td>중간 크기</td><td>20분</td></tr>
-        <tr><td>고구마</td><td>중간 크기</td><td>30분</td></tr>
         <tr><td>알감자</td><td>작은 크기</td><td>15분</td></tr>
+        <tr><td>감자</td><td>중간 크기</td><td>20분</td></tr>
+        <tr><td>큰 감자</td><td>큰 크기</td><td>30분 내외</td></tr>
+        <tr><td>고구마</td><td>중간 크기</td><td>30분</td></tr>
+        <tr><td>큰 고구마</td><td>큰 크기</td><td>40분 내외</td></tr>
       </tbody>
     </table>
     <p class="note">💡 젓가락으로 가장 두꺼운 부분을 찔러 힘없이 쑥 들어가면 다 익은 것입니다.</p>
+
+    <h3>맛있게 찌는 팁 4가지</h3>
+    <ul>
+      <li><strong>크기를 비슷하게 맞추세요.</strong> 큰 것과 작은 것을 함께 찌면 익는 정도가 달라지니, 큰 것은 반으로 잘라 크기를 맞추면 좋습니다.</li>
+      <li><strong>김이 오른 뒤에 넣으세요.</strong> 물이 끓어 김이 오른 상태에서 넣어야 시간 계산이 정확합니다.</li>
+      <li><strong>뚜껑을 자주 열지 마세요.</strong> 열 때마다 찜기 안의 열이 빠져 익는 시간이 길어집니다.</li>
+      <li><strong>찜기 물을 확인하세요.</strong> 30분 넘게 찔 때는 물이 모자라지 않은지 중간에 한 번 살펴보세요.</li>
+    </ul>
   </article>
 
   <article class="guide">
-    <h2>다른 요리 타이머</h2>
+    <h2>함께 쓰면 좋은 타이머</h2>
     <p>
-      <a href="../egg/">계란</a> · <a href="../ramen/">라면</a> · <a href="../pasta/">파스타</a> · <a href="../dumpling/">만두</a> · <a href="../veggie/">채소 데치기</a> · <a href="../tea/">차 우리기</a> ·
+      감자를 찌는 동안 다른 요리 타이머를 함께 켜 둘 수 있습니다. 여러 타이머가 동시에 진행되고, 다른 페이지로 이동해도 유지됩니다.
+    </p>
+    <p>
+      <a href="../egg/">계란</a> · <a href="../ramen/">라면</a> · <a href="../pasta/">파스타</a> · <a href="../dumpling/">만두</a> · <a href="../veggie/">채소 데치기</a> · <a href="../tea/">차 우리기</a> · <a href="../custom/">직접 설정</a> ·
       <a href="../">요리 타이머 홈</a>
     </p>
   </article>
