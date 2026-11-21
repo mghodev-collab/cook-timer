@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://mghodev-collab.github.io/cook-timer/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://mghodev-collab.github.io/cook-timer/</loc><lastmod>2026-11-22</lastmod></url>
   <url><loc>https://mghodev-collab.github.io/cook-timer/egg/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://mghodev-collab.github.io/cook-timer/ramen/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://mghodev-collab.github.io/cook-timer/pasta/</loc><lastmod>2026-11-20</lastmod></url>
@@ -8,4 +8,5 @@
   <url><loc>https://mghodev-collab.github.io/cook-timer/potato/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://mghodev-collab.github.io/cook-timer/veggie/</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://mghodev-collab.github.io/cook-timer/tea/</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://mghodev-collab.github.io/cook-timer/custom/</loc><lastmod>2026-11-22</lastmod></url>
 </urlset>
