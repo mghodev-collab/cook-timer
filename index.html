@@ -25,8 +25,12 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* 허브 페이지 전용 스타일 (음식 카드) */
-    .food-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 20px 0; padding: 0; list-style: none; }
-    @media (min-width: 640px) { .food-grid { grid-template-columns: repeat(3, 1fr); } }
+        .guide .food-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 20px 0; padding: 0; list-style: none; }
+    .guide .food-grid li { margin: 0; padding: 0; }
+    @media (min-width: 640px) {
+      .guide .food-grid { grid-template-columns: repeat(3, 1fr); }
+      .guide .food-grid li.wide { grid-column: span 2; }
+    }
     .food-card { display: block; height: 100%; padding: 16px 14px; border: 1px solid #d9e6da; border-radius: 12px; background: #fff; color: inherit; text-decoration: none; }
     .food-card:hover, .food-card:focus-visible { border-color: #3f9b4a; outline: 2px solid #3f9b4a; outline-offset: 2px; }
     .food-card .icon { display: block; font-size: 32px; line-height: 1; margin-bottom: 8px; }
@@ -58,6 +62,7 @@
       <li><a class="food-card" href="./potato/"><span class="icon">🥔</span><strong>감자·고구마</strong><span class="desc">찌는 시간 한눈에</span></a></li>
       <li><a class="food-card" href="./veggie/"><span class="icon">🥦</span><strong>채소 데치기</strong><span class="desc">시금치·브로콜리·콩나물</span></a></li>
       <li><a class="food-card" href="./tea/"><span class="icon">🍵</span><strong>차 우리기</strong><span class="desc">녹차·홍차·허브티</span></a></li>
+      <li class="wide"><a class="food-card" href="./custom/"><span class="icon">⏱️</span><strong>직접 설정</strong><span class="desc">원하는 시간을 분·초로 직접 입력</span></a></li>
     </ul>
   </section>
 
@@ -99,6 +104,7 @@
         <tr><td><a href="./potato/">감자·고구마</a></td><td>감자 / 고구마 찌기</td><td>20분 / 30분</td></tr>
         <tr><td><a href="./veggie/">채소</a></td><td>시금치 / 브로콜리 / 콩나물</td><td>30초 / 1분 30초 / 5분</td></tr>
         <tr><td><a href="./tea/">차</a></td><td>녹차 / 홍차 / 허브티</td><td>2분 / 3분 / 5분</td></tr>
+        <tr><td><a href="./custom/">직접 설정</a></td><td>분·초 직접 입력</td><td>원하는 시간</td></tr>
       </tbody>
     </table>
   </article>
