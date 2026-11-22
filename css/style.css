@@ -248,3 +248,4 @@ footer a { color: #888; }
   .timer.ringing { animation: none; }
   .timer-bar { transition: none; }
 }
+  .timer-phase { margin-top: 4px; font-size: .85rem; color: var(--green-dark); }
