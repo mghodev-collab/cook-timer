@@ -413,6 +413,29 @@ lab.appendChild(el("span", "choice-time", clock(o.seconds + (o.rest || 0))));
     hero.insertBefore(home, hero.firstChild);
   })();
 
+  // 맨 위로 올라가는 버튼 (모든 페이지에 자동 추가)
+  (function () {
+    var topBtn = el("button", "to-top", "↑");
+    topBtn.type = "button";
+    topBtn.hidden = true;
+    topBtn.setAttribute("aria-label", "맨 위로 이동");
+    document.body.appendChild(topBtn);
+
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    topBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    });
+
+    var ticking = false;
+    function update() {
+      ticking = false;
+      topBtn.hidden = (window.pageYOffset || document.documentElement.scrollTop) < 300;
+    }
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
+  })();
   buildTabs();
   selectFood(window.START_FOOD || (location.hash || "").slice(1) || FOODS[0].id, false);
   window.addEventListener("hashchange", function () {
