@@ -97,7 +97,7 @@ window.FOODS = [
       { label: "일반 익힘 · 펜네/푸실리", seconds: 600, desc: "10분" }
     ],
     modifiers: [
-      { id: "sauce", label: "팬에서 소스와 1분 더 볶을 예정 (-1분)", seconds: -60, default: false }
+      { id: "sauce", label: "팬에서 소스와 1분 더 볶을 예정", seconds: -60, default: false }
     ],
     tips: [
       {
@@ -169,7 +169,7 @@ window.FOODS = [
       { label: "알감자 · 작은 크기", seconds: 900, desc: "15분" }
     ],
     modifiers: [
-      { id: "big", label: "큼직한 크기 (+10분)", seconds: 600, default: false }
+      { id: "big", label: "큼직한 크기", seconds: 600, default: false }
     ],
     tips: [
       {
