@@ -39,22 +39,21 @@ body {
 }
 .hero h1 { margin: 0; font-size: 1.5rem; letter-spacing: -.02em; }
 .hero p { margin: 6px 0 0; font-size: .88rem; opacity: .92; }
-.hero { position: relative; }
 .home-btn {
-  position: absolute;
-  left: 12px;
-  top: calc(12px + env(safe-area-inset-top));
-  padding: 6px 12px;
-  background: rgba(255,255,255,.18);
-  border: 1px solid rgba(255,255,255,.45);
+  display: block;
+  width: fit-content;
+  margin: 0 auto 10px 0;
+  padding: 6px 14px;
+  background: #fff;
   border-radius: 999px;
-  color: #fff;
-  font-size: .82rem; font-weight: 600;
+  color: var(--green-dark);
+  font-size: .85rem; font-weight: 700;
   text-decoration: none;
   line-height: 1.4;
+  box-shadow: 0 1px 4px rgba(0,0,0,.18);
 }
-.home-btn:hover, .home-btn:focus-visible { background: rgba(255,255,255,.3); }
-.home-btn:active { background: rgba(255,255,255,.38); }
+.home-btn:hover, .home-btn:focus-visible { background: var(--green-soft); }
+.home-btn:active { background: #d9ecdb; }
 
 /* tabs */
 .tabs {
