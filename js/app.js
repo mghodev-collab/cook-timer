@@ -377,6 +377,16 @@
 
   // ───────── boot ─────────
   var BASE_TITLE = document.title;
+  // 음식 페이지·custom 헤더에 "홈으로" 버튼 추가 (허브에서는 표시 안 함)
+  (function () {
+    var hero = $(".hero");
+    if (!hero || !window.SITE_ROOT || window.SITE_ROOT === "./") return;
+    var home = el("a", "home-btn", "← 홈");
+    home.href = window.SITE_ROOT;
+    home.setAttribute("aria-label", "요리 타이머 홈으로 이동");
+    hero.insertBefore(home, hero.firstChild);
+  })();
+
   buildTabs();
   selectFood(window.START_FOOD || (location.hash || "").slice(1) || FOODS[0].id, false);
   window.addEventListener("hashchange", function () {
