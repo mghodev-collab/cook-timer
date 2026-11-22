@@ -18,9 +18,9 @@ window.FOODS = [
     title: "계란 삶기",
     hint: "물이 팔팔 끓을 때 계란을 넣고 시작을 누르세요.",
     options: [
-      { label: "촉촉한 반숙", seconds: 390, desc: "노른자가 흐르는 정도" },
-      { label: "쫀득한 반숙", seconds: 480, desc: "노른자가 꾸덕한 정도" },
-      { label: "완숙", seconds: 660, desc: "노른자까지 완전히" }
+      { label: "촉촉한 반숙", seconds: 390, desc: "노른자가 흐르는 정도 · 물은 잠길 만큼" },
+      { label: "쫀득한 반숙", seconds: 480, desc: "노른자가 꾸덕한 정도 · 물은 잠길 만큼" },
+      { label: "완숙", seconds: 660, desc: "노른자까지 완전히 · 물은 잠길 만큼" }
     ],
     modifiers: [
       { id: "cold", label: "냉장고에서 갓 꺼낸 차가운 계란", seconds: 60, default: true }
@@ -55,9 +55,9 @@ window.FOODS = [
     title: "라면 끓이기",
     hint: "물이 끓으면 면과 스프를 넣고 시작을 누르세요.",
     options: [
-      { label: "꼬들면", seconds: 210, desc: "탱탱하고 꼬들한 식감" },
-      { label: "기본 봉지라면", seconds: 270, desc: "포장지 권장 시간" },
-      { label: "푹 익힌 면", seconds: 330, desc: "부드럽게 퍼진 면" }
+      { label: "꼬들면", seconds: 210, desc: "꼬들한 식감 · 1봉 · 물 약 550ml" },
+      { label: "기본 봉지라면", seconds: 270, desc: "포장지 권장 시간 · 1봉 · 물 약 550ml" },
+      { label: "푹 익힌 면", seconds: 330, desc: "부드럽게 퍼진 면 · 1봉 · 물 약 550ml" }
     ],
     modifiers: [
       { id: "cup", label: "컵라면 (뜨거운 물 붓고 기다리기)", seconds: -30, default: false }
@@ -92,9 +92,9 @@ window.FOODS = [
     title: "파스타 면 삶기",
     hint: "소금을 넣은 끓는 물에 면을 넣고 시작을 누르세요.",
     options: [
-      { label: "스파게티니 · 얇은 면", seconds: 420, desc: "7분" },
-      { label: "스파게티 · 알덴테", seconds: 480, desc: "8분 · 심이 살짝 남음" },
-      { label: "일반 익힘 · 펜네/푸실리", seconds: 600, desc: "10분" }
+      { label: "스파게티니 · 얇은 면", seconds: 420, desc: "7분 · 건면 100g · 물 1L" },
+      { label: "스파게티 · 알덴테", seconds: 480, desc: "8분 · 건면 100g · 물 1L" },
+      { label: "일반 익힘 · 펜네/푸실리", seconds: 600, desc: "10분 · 건면 100g · 물 1L" }
     ],
     modifiers: [
       { id: "sauce", label: "팬에서 소스와 1분 더 볶을 예정", seconds: -60, default: false }
@@ -204,9 +204,9 @@ window.FOODS = [
     title: "채소 데치기",
     hint: "소금 약간 넣은 끓는 물에 넣고 시작을 누르세요.",
     options: [
-      { label: "시금치", seconds: 30, desc: "30초" },
-      { label: "브로콜리", seconds: 90, desc: "1분 30초" },
-      { label: "콩나물 (뚜껑 덮고)", seconds: 300, desc: "5분" }
+      { label: "시금치", seconds: 30, desc: "30초 · 200g · 물 1L" },
+      { label: "브로콜리", seconds: 90, desc: "1분 30초 · 1송이 · 물 1L" },
+      { label: "콩나물 (뚜껑 덮고)", seconds: 300, desc: "5분 · 200g · 물 3컵" }
     ],
     modifiers: [],
     tips: [
