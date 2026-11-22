@@ -113,7 +113,7 @@
       body.appendChild(el("span", "choice-desc", o.desc || ""));
       lab.appendChild(input);
       lab.appendChild(body);
-      lab.appendChild(el("span", "choice-time", clock(o.seconds)));
+lab.appendChild(el("span", "choice-time", clock(o.seconds + (o.rest || 0))));
       list.appendChild(lab);
     });
     panel.appendChild(list);
@@ -128,6 +128,8 @@
     });
 
     var summary = el("p", "summary");
+    var restNote = el("p", "hint");
+    restNote.textContent = "뜸이 필요한 요리예요. 조리가 끝나면 알림이 울리니 그때 불을 끄고 뚜껑을 덮어 두세요. 화면 꺼짐 방지가 켜진 채로 두면 알림이 제때 울립니다.";
     var btn = el("button", "start-btn");
     btn.type = "button";
     panel.appendChild(summary);
@@ -141,11 +143,14 @@
       (food.modifiers || []).forEach(function (m) {
         if ($('input[data-mod="' + m.id + '"]', panel).checked) { sec += m.seconds; tags.push(m.label.split(" (")[0]); }
       });
-      return { sec: Math.max(5, sec), opt: opt, tags: tags };
+      return { sec: Math.max(5, sec), rest: opt.rest || 0, opt: opt, tags: tags };
     }
     function refresh() {
       var c = compute();
-      summary.innerHTML = "총 조리 시간 <strong>" + human(c.sec) + "</strong>";
+      summary.innerHTML = c.rest
+        ? "조리 <strong>" + human(c.sec) + "</strong> + 뜸 <strong>" + human(c.rest) + "</strong> = 총 <strong>" + human(c.sec + c.rest) + "</strong>"
+        : "총 조리 시간 <strong>" + human(c.sec) + "</strong>";
+      restNote.hidden = !c.rest;
       btn.textContent = food.name + " 타이머 시작";
     }
     panel.onchange = refresh;
@@ -153,7 +158,7 @@
 
     btn.addEventListener("click", function () {
       var c = compute();
-      addTimer(food.id, food.emoji + " " + food.name + " · " + c.opt.label, c.sec);
+      addTimer(food.id, food.emoji + " " + food.name + " · " + c.opt.label, c.sec + c.rest, c.rest);
     });
 
     renderTips(food);
@@ -217,13 +222,13 @@
   var emptyEl = $("#emptyNotice");
   var cards = {}; // id -> {root, time, bar, pauseBtn}
 
-  function addTimer(food, title, sec) {
+  function addTimer(food, title, sec, rest) {
     unlockAudio();
     askNotify();
     timers.unshift({
       id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
       food: food, title: title, total: sec,
-      endAt: Date.now() + sec * 1000, remaining: sec, done: false, ack: false
+      endAt: Date.now() + sec * 1000, remaining: sec, done: false, ack: false, rest: rest || 0, restDone: false
     });
     save();
     syncCards();
@@ -245,7 +250,7 @@
   }
 
   function addTime(t, s) {
-    if (t.done) { t.done = false; t.ack = false; t.endAt = Date.now() + s * 1000; t.total = s; }
+    if (t.done) { t.done = false; t.ack = false; t.endAt = Date.now() + s * 1000; t.total = s; t.rest = 0; }
     else if (t.endAt) t.endAt += s * 1000;
     else t.remaining += s;
     t.total = Math.max(t.total, remainingOf(t));
@@ -275,6 +280,8 @@
     info.appendChild(el("div", "timer-title", t.title));
     var time = el("div", "timer-time");
     info.appendChild(time);
+    var phase = el("div", "timer-phase");
+    phase.hidden = true; info.appendChild(phase);
     var actions = el("div", "timer-actions");
     var plus = el("button", "icon-btn", "+30초");
     var pauseBtn = el("button", "icon-btn");
@@ -286,15 +293,19 @@
     });
     del.addEventListener("click", function () { removeTimer(t.id); });
     root.appendChild(bar); root.appendChild(info); root.appendChild(actions);
-    return { root: root, time: time, bar: bar, pauseBtn: pauseBtn };
+    return { root: root, time: time, bar: bar, pauseBtn: pauseBtn, phase: phase };
   }
 
   var lastBeep = 0;
   function tick() {
-    var now = Date.now(), ringing = false, running = 0, soonest = null, changed = false;
+    var now = Date.now(), ringing = false, running = 0, soonest = null, changed = false, restRing = false;
     timers.forEach(function (t) {
       var c = cards[t.id];
       var rem = remainingOf(t);
+       if (!t.done && t.rest > 0 && !t.restDone && t.endAt && rem <= t.rest) {
+        t.restDone = true; changed = true;
+        if (rem > 0 && t.rest - rem <= 30) { restRing = true; notifyRest(t); }
+      }
       if (!t.done && rem <= 0) {
         t.done = true; t.endAt = null; t.remaining = 0; t.doneAt = now; changed = true;
         notify(t);
@@ -307,11 +318,23 @@
       c.root.classList.toggle("ringing", t.done && !t.ack);
       c.root.classList.toggle("paused", !t.done && !t.endAt);
       c.time.textContent = t.done ? "완료! 🎉" : clock(rem);
+      if (t.rest > 0 && !t.done) {
+        c.phase.hidden = false;
+        c.phase.textContent = t.restDone
+          ? "♨️ 뜸 들이는 중 · 불을 끄고 뚜껑을 덮어 두세요"
+          : "조리 중 · 불 끄기까지 " + clock(rem - t.rest);
+      } else {
+        c.phase.hidden = true;
+      }
       c.bar.style.transform = "scaleX(" + (t.done ? 1 : Math.min(1, 1 - rem / t.total)).toFixed(4) + ")";
       c.pauseBtn.textContent = t.done ? (t.ack ? "✓ 확인됨" : "알람 끄기") : (t.endAt ? "일시정지" : "계속");
       c.pauseBtn.disabled = t.done && t.ack;
     });
     if (changed) { save(); syncCards(); }
+    if (restRing) {
+      beep();
+      if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+    }
     if (ringing && now - lastBeep > 1500) {
       lastBeep = now; beep();
       if (navigator.vibrate) navigator.vibrate([300, 150, 300]);
@@ -339,6 +362,10 @@
     save(); syncCards(); tick();
   });
 
+  function notifyRest(t) {
+    if (!("Notification" in window) || Notification.permission !== "granted" || !document.hidden) return;
+    try { new Notification("♨️ 불 끄고 뚜껑 덮으세요", { body: t.title + " · 이제 뜸 들이기", tag: t.id + "-rest" }); } catch (e) {}
+  }
   // ───────── notifications ─────────
   function askNotify() {
     if ("Notification" in window && Notification.permission === "default") {
