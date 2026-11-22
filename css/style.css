@@ -130,8 +130,27 @@ body {
 .timer-section { padding: 18px; background: #f8faf7; border-top: 1px solid var(--line); border-bottom: 8px solid #eef1ed; }
 .timer-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
 .timer-head h2 { margin: 0; font-size: 1.02rem; }
-.wake-status { font-size: .78rem; color: var(--green-dark); }
-.link-btn { margin-left: auto; border: 0; background: none; color: var(--muted); font: inherit; font-size: .82rem; text-decoration: underline; cursor: pointer; }
+.wake-status { font-size: .78rem; color: var(--green-dark); white-space: nowrap; }
+.link-btn {
+  margin-left: auto;
+  padding: 7px 12px; min-height: 36px;
+  border: 1px solid var(--line); border-radius: 8px;
+  background: #f4f6f3; color: #333;
+  font: inherit; font-size: .82rem; font-weight: 600;
+  text-decoration: none; cursor: pointer;
+}
+.link-btn:active { background: #e9ece8; }
+/* 두 번째 버튼(전체 삭제): 빨간 글자, 첫 버튼 바로 옆에 붙임 */
+.link-btn + .link-btn { margin-left: 0; color: var(--alert); }
+/* 첫 버튼이 숨겨져 있으면 전체 삭제가 오른쪽 끝으로 */
+.link-btn[hidden] + .link-btn { margin-left: auto; }
+
+@media (max-width: 520px) {
+  /* 폰: 제목 줄 아래에 두 버튼을 가로로 나란히 꽉 차게 */
+  .link-btn, .link-btn + .link-btn, .link-btn[hidden] + .link-btn {
+    flex: 1 1 calc(50% - 5px); margin-left: 0; text-align: center;
+  }
+}
 .timer-list { display: flex; flex-direction: column; gap: 10px; }
 .empty { margin: 0; color: var(--muted); font-size: .9rem; }
 
