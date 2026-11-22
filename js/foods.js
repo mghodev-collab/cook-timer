@@ -163,6 +163,7 @@ window.FOODS = [
     name: "감자·고구마",
     title: "감자 · 고구마 찌기",
     hint: "찜기에 김이 오르면 넣고 시작을 누르세요.",
+    options: [
       { label: "감자 (중간 크기)", seconds: 1200, rest: 300, desc: "조리 20분 + 뜸 5분" },
       { label: "고구마 (중간 크기)", seconds: 1800, rest: 600, desc: "조리 30분 + 뜸 10분" },
       { label: "알감자 · 작은 크기", seconds: 900, rest: 180, desc: "조리 15분 + 뜸 3분" }
