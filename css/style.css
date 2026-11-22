@@ -250,4 +250,5 @@ footer a { color: #888; }
 }
 .timer-phase { margin-top: 4px; font-size: .85rem; color: var(--green-dark); }
 .food-card { word-break: keep-all; overflow-wrap: break-word; }
+body { word-break: keep-all; overflow-wrap: break-word; }
 .guide p { word-break: keep-all; overflow-wrap: break-word; }
