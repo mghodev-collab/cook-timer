@@ -92,7 +92,6 @@
       var on = tabs[i].dataset.id === id;
       tabs[i].classList.toggle("active", on);
       tabs[i].setAttribute("aria-selected", on ? "true" : "false");
-      if (on && tabs[i].scrollIntoView) tabs[i].scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
     }
     if (updateHash && history.replaceState) history.replaceState(null, "", "#" + id);
     if (id === CUSTOM_ID) renderCustom(); else renderFood(findFood(id));
