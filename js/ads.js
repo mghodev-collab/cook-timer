@@ -15,7 +15,7 @@ window.AD_CONFIG = {
     middle: "",   // 진행 중인 타이머 아래
     bottom: ""    // 요리 팁 사이
   },
-  showPlaceholders: true
+  showPlaceholders: false
 };
 
 (function () {
