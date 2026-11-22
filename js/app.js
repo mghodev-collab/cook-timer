@@ -266,6 +266,7 @@
     });
     emptyEl.hidden = timers.length > 0;
     $("#clearDone").hidden = !timers.some(function (t) { return t.done; });
+    clearAll.hidden = timers.length === 0;
   }
 
   function buildCard(t) {
@@ -322,8 +323,20 @@
     setWakeLock(running > 0 || ringing);
   }
 
-  $("#clearDone").addEventListener("click", function () {
+  var clearDone = $("#clearDone");
+  clearDone.addEventListener("click", function () {
     timers = timers.filter(function (t) { return !t.done; });
+    save(); syncCards(); tick();
+  });
+
+  var clearAll = el("button", clearDone.className, "전체 삭제");
+  clearAll.type = "button";
+  clearAll.hidden = true;
+  clearDone.parentNode.insertBefore(clearAll, clearDone.nextSibling);
+  clearAll.addEventListener("click", function () {
+    if (!timers.length) return;
+    if (!confirm("진행 중인 타이머를 포함해 모든 타이머를 삭제할까요?")) return;
+    timers = [];
     save(); syncCards(); tick();
   });
 
