@@ -193,8 +193,11 @@ lab.appendChild(el("span", "choice-time", clock(o.seconds + (o.rest || 0))));
     var btn = el("button", "start-btn", "타이머 시작");
     btn.type = "button";
     btn.addEventListener("click", function () {
-      var sec = (parseInt($("#cMin").value, 10) || 0) * 60 + (parseInt($("#cSec").value, 10) || 0);
-      if (sec <= 0) { $("#cMin").focus(); return; }
+      var mm = Math.min(180, Math.max(0, parseInt($("#cMin").value, 10) || 0));
+var ss = Math.min(59, Math.max(0, parseInt($("#cSec").value, 10) || 0));
+$("#cMin").value = mm; $("#cSec").value = ss;
+var sec = mm * 60 + ss;
+if (sec <= 0) { $("#cMin").focus(); return; }
       addTimer(CUSTOM_ID, "⏱️ " + (name.value.trim() || "내 타이머"), sec);
     });
     panel.appendChild(btn);
