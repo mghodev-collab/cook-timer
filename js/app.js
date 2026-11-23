@@ -134,6 +134,7 @@ lab.appendChild(el("span", "choice-time", clock(o.seconds + (o.rest || 0))));
     btn.type = "button";
     panel.appendChild(summary);
     if (food.hint) panel.appendChild(el("p", "hint", food.hint));
+    panel.appendChild(restNote);
     panel.appendChild(btn);
 
     function compute() {
