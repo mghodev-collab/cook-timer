@@ -166,10 +166,10 @@ window.FOODS = [
     options: [
       { label: "감자 (중간 크기)", seconds: 1200, rest: 300, desc: "조리 20분 + 뜸 5분" },
       { label: "고구마 (중간 크기)", seconds: 1800, rest: 600, desc: "조리 30분 + 뜸 10분" },
-      { label: "알감자 · 작은 크기", seconds: 900, rest: 180, desc: "조리 15분 + 뜸 3분" },
+      { label: "알감자 · 작은 크기", seconds: 900, rest: 180, skip: ["big"], desc: "조리 15분 + 뜸 3분" },
       { label: "삶은 밤 (칼집 필수)", seconds: 1500, rest: 300, desc: "조리 25분 + 뜸 5분" },
-      { label: "군밤 (프라이팬)", seconds: 1200, desc: "칼집 내고 뚜껑 덮어 약 20분" },
-      { label: "옥수수 (찰옥수수 삶기)", seconds: 1800, desc: "끓는 물에 통째로 30분" }
+      { label: "군밤 (프라이팬)", seconds: 1200, skip: ["big"], desc: "칼집 내고 뚜껑 덮어 약 20분" },
+      { label: "옥수수 (찰옥수수 삶기)", seconds: 1800, skip: ["big"], desc: "끓는 물에 통째로 30분" }
     ],
     modifiers: [
       { id: "big", label: "큼직한 크기", seconds: 600, default: false }
