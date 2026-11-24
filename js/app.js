@@ -120,6 +120,7 @@ lab.appendChild(el("span", "choice-time", clock(o.seconds + (o.rest || 0))));
 
     (food.modifiers || []).forEach(function (m) {
       var lab = el("label", "check");
+      lab.dataset.modWrap = m.id;
       var input = el("input");
       input.type = "checkbox"; input.dataset.mod = m.id; input.checked = !!m.default;
       lab.appendChild(input);
@@ -137,17 +138,23 @@ lab.appendChild(el("span", "choice-time", clock(o.seconds + (o.rest || 0))));
     panel.appendChild(restNote);
     panel.appendChild(btn);
 
+    function skipped(opt, m) { return (opt.skip || []).indexOf(m.id) !== -1; }
     function compute() {
       var idx = +$("input[name=opt]:checked", panel).value;
       var opt = food.options[idx];
       var sec = opt.seconds, tags = [];
       (food.modifiers || []).forEach(function (m) {
+        if (skipped(opt, m)) return;
         if ($('input[data-mod="' + m.id + '"]', panel).checked) { sec += m.seconds; tags.push(m.label.split(" (")[0]); }
       });
       return { sec: Math.max(5, sec), rest: opt.rest || 0, opt: opt, tags: tags };
     }
     function refresh() {
       var c = compute();
+      (food.modifiers || []).forEach(function (m) {
+        var w = $('label[data-mod-wrap="' + m.id + '"]', panel);
+        if (w) w.style.display = skipped(c.opt, m) ? "none" : "";
+      });
       summary.innerHTML = c.rest
         ? "조리 <strong>" + human(c.sec) + "</strong> + 뜸 <strong>" + human(c.rest) + "</strong> = 총 <strong>" + human(c.sec + c.rest) + "</strong>"
         : "총 조리 시간 <strong>" + human(c.sec) + "</strong>";
